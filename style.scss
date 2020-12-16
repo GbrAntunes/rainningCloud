@@ -1,0 +1,144 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background: linear-gradient(#666, #DDD);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  main {
+    position: relative;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    animation: cloud-wave 3s ease-in-out infinite;
+
+    span {
+      font-family: sans-serif;
+      font-weight: bold;
+      color: rgba(165, 81, 214, 0.822);
+      position: absolute;
+      top: 50px;
+      left: 150px;
+      z-index: 4;
+      animation: z 3s ease-in infinite;
+    }
+
+    .z-2 { animation-delay: 1s; }
+    .z-3 { animation-delay: 2s; }
+
+    .cloud {
+      z-index: 1;
+
+      .eye-1, .eye-2 {
+        border: 3px solid #CCC;
+        border-top: 0px solid;
+        width: 15px;
+        height: 15px;
+        border-radius: 0px 0px 10px 10px;
+        position: absolute;
+        top: 95px;
+        z-index: 3;
+      }
+
+      .eye-1 { left: 50px; }
+      .eye-2 { left: 100px; }
+
+      .pill {
+        width: 200px;
+        height: 80px;
+        background: #EEE;
+        border-radius: 40px;
+      }
+    
+      .big-circle {
+        width: 100px;
+        height: 100px;
+        background:#EEE;
+        border-radius: 50%;
+        position: absolute;
+        top: 5px;
+        left: 25px;
+      }
+    
+      .small-circle {
+        width: 70px;
+        height: 70px;
+        background:#EEE;
+        border-radius: 50%;
+        position: absolute;
+        top: 25px;
+        left: 105px;
+      }    
+    }
+  }
+
+  .rain {
+    position: absolute;
+    top: 40%;
+    height: 60%;
+    left: 10px;
+    width: 90%;
+    
+    display: flex;
+    justify-content: space-between;
+
+    & > * {
+      background: linear-gradient(rgba(255, 255, 255, 0.6), #FFF);
+      width: 2px;
+      height: 20px;
+      opacity: 0.7;
+      animation: rain-drop 1s ease-in infinite;
+    }
+
+    & > .droplet-1 { animation-delay: 0.7s; }
+    & > .droplet-2 { animation-delay: 0.2s; }
+    & > .droplet-3 { animation-delay: 0.9s; }
+    & > .droplet-4 { animation-delay: 1.2s; }
+    & > .droplet-5 { animation-delay: 0.4s; }
+    & > .droplet-6 { animation-delay: 0.8s; }
+  }
+}
+
+@keyframes cloud-wave {
+  0% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes rain-drop {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes z {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-80px) translateX(30px) scale(2) rotateZ(-40deg);
+    opacity: 0;
+  }
+}
